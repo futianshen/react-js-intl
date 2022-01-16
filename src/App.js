@@ -1,11 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg"
+import "./App.css"
+import { defineMessages, defineMessage, useIntl } from "react-intl"
+
+const messages = defineMessages({
+  test2: { id: "test2", defaultMessage: "default" },
+})
 
 function App() {
+  const { formatMessage } = useIntl()
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <div>{formatMessage({ id: "test", defaultMessage: "default" })}</div>
+        <div>{formatMessage(messages.test2)}</div>
+        <div>
+          {formatMessage(
+            defineMessage({ id: "test", defaultMessage: "default" })
+          )}
+        </div>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,7 +32,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
