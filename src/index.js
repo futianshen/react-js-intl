@@ -4,15 +4,11 @@ import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { IntlProvider } from "react-intl"
+import * as locales from "./translations/locales"
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider
-      messages={{
-        test: "1234",
-        test2: "5678",
-      }}
-    >
+    <IntlProvider messages={locales['jp']}>
       <App />
     </IntlProvider>
   </React.StrictMode>,
